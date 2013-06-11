@@ -1,0 +1,19 @@
+<table>
+	<thead>
+		<tr>
+			<th>Student</th>
+			<th>Grade</th>
+			<th>Marks</th>
+		</tr>
+
+	</thead>
+	<tbody>
+	<% @marksheets.each do |ms| %>
+	<tr>
+		<td><%=ms.student_name%></td>
+		<td><%=ms.grade%></td>
+		<td><%=ms.marks%></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,2 @@
+class MarklistsController < ApplicationController
+end

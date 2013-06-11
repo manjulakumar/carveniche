@@ -1,0 +1,19 @@
+<%= form_tag grade_marksheet_path(@grade), :method=>:put do  %>
+	<table>
+	<% @marksheets.each do |ms| %>
+		<tr>
+		<%= fields_for "marksheet[#{ms.id}]", ms do |ms_fields| %>
+			<td><%=ms.student_name%></td>
+			<td><%= ms_fields.text_field :marks %>
+				<% unless ms.errors.empty? and ms.errors.messages[:marks] %>
+					<span class="errors">
+						<%= ms.errors.messages[:marks].join(", ") %>
+					</span>
+				<% end %>
+			</td>
+		<% end %>
+		</tr>
+	<% end %>
+	</table>
+	<%= submit_tag "update marks" %>
+<% end %>
