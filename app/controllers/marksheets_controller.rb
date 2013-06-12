@@ -12,7 +12,8 @@ class MarksheetsController < ApplicationController
 			end
 		end
 		puts marksheets.inspect
-		unless marksheets.collect(&:errors).compact.empty?
+		errors = marksheets.collect(&:errors).compact
+		unless errors.all?(&:empty?)
 			@grade = params[:grade_id]
 			@marksheets=marksheets
 			render :action=>:edit
